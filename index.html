@@ -48,9 +48,9 @@
 
   <meta name="description" content="如果你没有控制自己的思维，那你便没有控制自己。缺乏自我控制，不论你想实现什么样的目标，你都不会有真正的力量。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Coding~~~">
+<meta property="og:title" content="技术随笔">
 <meta property="og:url" content="http://xilei.fun/index.html">
-<meta property="og:site_name" content="Coding~~~">
+<meta property="og:site_name" content="技术随笔">
 <meta property="og:description" content="如果你没有控制自己的思维，那你便没有控制自己。缺乏自我控制，不论你想实现什么样的目标，你都不会有真正的力量。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Humor">
@@ -68,7 +68,7 @@
   };
 </script>
 
-  <title>Coding~~~</title>
+  <title>技术随笔</title>
   
 
 
@@ -112,7 +112,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Coding~~~</span>
+        <span class="site-title">技术随笔</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -176,7 +176,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coding~~~">
+      <meta itemprop="name" content="技术随笔">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -193,6 +193,13 @@
 
               <time title="创建时间：2020-07-21 12:02:16" itemprop="dateCreated datePublished" datetime="2020-07-21T12:02:16+08:00">2020-07-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-22 21:58:34" itemprop="dateModified" datetime="2020-07-22T21:58:34+08:00">2020-07-22</time>
+              </span>
 
           
 
@@ -207,18 +214,14 @@
       
           <h1 id="Binder机制"><a href="#Binder机制" class="headerlink" title="Binder机制"></a>Binder机制</h1><p>Binder是Android独有的一种进程间通信的机制，区别于Java所原有的其它进程间通信的方式（管道、Socket、共享内存等）。</p>
 <p>为什么Android要使用Binder，性能上Binder只需要对数据拷贝一次，管道和Socket需要对数据拷贝两次，共享内存无需拷贝；安全上Binder有对双方做安全校验，Socket等没有安全校验，共享内存会有并发问题。</p>
-<p>Binder使用Client－Server通信方式。Binder框架定义了四个角色：Server,Client,ServiceManager以及Binder驱动。其中Server,Client,ServiceManager运行于用户空间，驱动运行于内核空间。Binder驱动程序提供设备文件/dev/binder与用户空间交互，Client、Server和Service Manager通过open和ioctl文件操作函数与Binder驱动程序进行通信。</p>
-<p>Server：服务端，服务端先在ServiceManager中注册已有某项服务，持有的Binder对象是实体操作对象</p>
-<p>Client：用户端，用户端通过向ServiceManager请求获得某项服务的Binder对象，通过Binder对象来完成跨进程通信，持有的Binder对象为代理，通过代理去调用到Server中真正的实体对象</p>
-<p>ServiceManager：服务管理，通过调用内核空间的Binder驱动的相关能力实现跨进程通信，与Binder驱动之间通过open/ioctl等指令进行通信</p>
-<p>Binder驱动：系统提供的/dev/binder为设备文件，通过它可以完成进程间通信</p>
-<p>Binder是如何实现只需要一次数据拷贝的，Binder开始工作时会在内核创建一块内核缓冲区，将内核缓冲区和接收进程的数据接收的内存构建了内存映射，所以使用Binder进行通信时只需要发送方调用copy_from_user()将数据从用户空间拷贝到内核空间，因为已经构建了内存映射，所以此时接收方就能看到传递过来的数据。而一般的进程间通讯还需要一步从内核空间拷贝到接收方用户空间的过程，由此Binder是只进行了一次数据拷贝，而一般跨进程通信需要两次。</p>
-<p>一般的进程间通信：</p>
-<p><img src="http://p1.pstatp.com/large/pgc-image/5b391412f26f4a4aa5d68a1db0dd0a04" alt="img"></p>
-<p>Binder的进程间通信：</p>
-<p><img src="http://p3.pstatp.com/large/pgc-image/84150198c8a44bb187bdee73c99c4496" alt="img"></p>
-<p>参考：<a href="https://blog.csdn.net/AndroidStudyDay/article/details/93749470" target="_blank" rel="noopener">https://blog.csdn.net/AndroidStudyDay/article/details/93749470</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/21/Binder%E6%9C%BA%E5%88%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -246,7 +249,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coding~~~">
+      <meta itemprop="name" content="技术随笔">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -268,7 +271,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-21 19:47:53" itemprop="dateModified" datetime="2020-04-21T19:47:53+08:00">2020-04-21</time>
+                <time title="修改时间：2020-07-22 21:57:33" itemprop="dateModified" datetime="2020-07-22T21:57:33+08:00">2020-07-22</time>
               </span>
 
           
@@ -284,106 +287,14 @@
       
           <h1 id="常见的排序算法梳理"><a href="#常见的排序算法梳理" class="headerlink" title="常见的排序算法梳理"></a>常见的排序算法梳理</h1><p>下面列了几种比较常见面试可能会问到的排序算法，虽然我们平时使用的时候都是api直接调用，但是在面试中经常会考查这些内容。以下内容最好能完全掌握并且能手写出来。</p>
 <h3 id="一、冒泡排序"><a href="#一、冒泡排序" class="headerlink" title="一、冒泡排序"></a>一、冒泡排序</h3><p>思路：需要两层循环，内层循环依次比较左右相邻的两个数字，如果大小关系与最终结果不一致则调换顺序，这样每一次完整的内层循环都会筛选出当前最大或最小的数，外层循环逐步缩小内层循环的范围。最终如果一次完整的内层循环没有发生交换则说明数组已经是有序的，可以提前退出算法。</p>
-<p>时间复杂度：<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6cd9594a16cb898b8f2a2dff9227a385ec183392" alt="O(n^{2})"></p>
-<p>图示：<img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif" alt="BubbleSort"></p>
-<p>代码：`</p>
-<p>public static int[] sort(int[] arr) {</p>
-<p>​        boolean sorted = true;</p>
-<p>​        for (int i = 0; i &lt; arr.length - 1; i++) {</p>
-<p>​            sorted = true;</p>
-<p>​            for (int j = 0; j &lt; arr.length - i - 1; j++) {</p>
-<p>​                if (arr[j] &gt; arr[j + 1]) {</p>
-<p>​                    swap(arr, j, j + 1);</p>
-<p>​                    sorted = false;</p>
-<p>​                }</p>
-<p>​            }</p>
-<p>​            System.out.println(Arrays.toString(arr));</p>
-<p>​            if (sorted) {</p>
-<p>​                return arr;</p>
-<p>​            }</p>
-<p>​        }</p>
-<p>​        return arr;</p>
-<p>​    }</p>
-<p>`</p>
-<h3 id="二、快速排序"><a href="#二、快速排序" class="headerlink" title="二、快速排序"></a>二、快速排序</h3><p>思路：快速排序使用的是分而治之的方法。先取出一个基准值，然后处理整个数组，比它小的放在它的左边，比它大的放在它的右边，这样在数组处理完成时基准值一定在它正确的位置，这时我们再用同样的方法去处理它左边的数组和右边的数组。</p>
-<p>时间复杂度：<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/52de01bd6666792cf18fce11c058ae3e67694f02" alt="{\displaystyle \ O(n\log n)}"></p>
-<p>图示：<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif" alt="quickSort"></p>
-<p>代码：`</p>
-<p>public static void quickSort(int[] arr, int left, int right) {</p>
-<p>​        if (left &lt; right) {</p>
-<p>​            int basePos = partition(arr, left, right);</p>
-<p>​            quickSort(arr, left, basePos - 1);</p>
-<p>​            quickSort(arr, basePos + 1, right);</p>
-<p>​        }</p>
-<p>​    }</p>
-<p>​    </p>
-<p>​    private static int partition(int[] arr, int left, int right) {</p>
-<p>​        int i = left, j = right;</p>
-<p>​        int base = arr[left];</p>
-<p>​        while (i &lt; j) {</p>
-<p>​            while (i &lt; j &amp;&amp; arr[j] &gt;= base) {//</p>
-<p>​                j–;</p>
-<p>​            }</p>
-<p>​            if (i &lt; j) {</p>
-<p>​                arr[i] = arr[j];</p>
-<p>​                i++;</p>
-<p>​            }</p>
-<p>​            while (i &lt; j &amp;&amp; arr[i] &lt; base) {</p>
-<p>​                i++;</p>
-<p>​            }</p>
-<p>​            if (i &lt; j) {</p>
-<p>​                arr[j] = arr[i];</p>
-<p>​                j–;</p>
-<p>​            }</p>
-<p>​        }</p>
-<p>​        arr[i] = base;</p>
-<p>​        return i;</p>
-<p>​    }</p>
-<p>`</p>
-<h3 id="三、选择排序"><a href="#三、选择排序" class="headerlink" title="三、选择排序"></a>三、选择排序</h3><p>思路：依靠两层循环找出每一个位置上的数字</p>
-<p>时间复杂度：<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6cd9594a16cb898b8f2a2dff9227a385ec183392" alt="O(n^{2})"></p>
-<p>图示：<img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Selection_sort_animation.gif" alt="SelectSort"></p>
-<p>代码：`</p>
-<p>public static void selectSort(int[] arr) {</p>
-<p>​        for (int i = 0; i &lt; arr.length - 1; i++) {</p>
-<p>​            int min = i;</p>
-<p>​            for (int j = i + 1; j &lt; arr.length; j++) {</p>
-<p>​                if (arr[j] &lt; arr[min]) {</p>
-<p>​                    min = j;</p>
-<p>​                }</p>
-<p>​            }</p>
-<p>​            if (min != i) {</p>
-<p>​                int temp = arr[i];</p>
-<p>​                arr[i] = arr[min];</p>
-<p>​                arr[min] = temp;</p>
-<p>​            }</p>
-<p>​        }</p>
-<p>​    }</p>
-<p>`</p>
-<h3 id="四、插入排序"><a href="#四、插入排序" class="headerlink" title="四、插入排序"></a>四、插入排序</h3><p>思路：依次从数组的第二位开始取出一个数字，再依次与左边有序部分进行比较，将取出的数字插入对应的位置</p>
-<p>时间复杂度：<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6cd9594a16cb898b8f2a2dff9227a385ec183392" alt="O(n^{2})"></p>
-<p>图示：<img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Insertion_sort_animation.gif" alt="InsertSort"></p>
-<p>代码：`</p>
-<p>public static void inertSelect(int[] arr) {</p>
-<p>​        for (int i = 1; i &lt; arr.length; i++) {</p>
-<p>​            int j = i;</p>
-<p>​            int temp = arr[i];</p>
-<p>​            while (j &gt; 0 &amp;&amp; arr[j - 1] &gt; temp) {</p>
-<p>​                arr[j] = arr[j - 1];</p>
-<p>​                j–;</p>
-<p>​            }</p>
-<p>​            if ( j != i) {</p>
-<p>​                arr[j] = temp;</p>
-<p>​            }</p>
-<p>​        }</p>
-<p>​    }</p>
-<p>`</p>
-<h3 id="五、堆排序"><a href="#五、堆排序" class="headerlink" title="五、堆排序"></a>五、堆排序</h3><p>思路：将数组抽象成完全二叉树，升序排列构建大根堆（父节点为最大值的完全二叉树），降序排列构建小根堆（父节点为最小值的完全二叉树）。每次构建完成后将根节点交换到数组的最后一位，再对n-1个数再进行前面进行的操作，直到所有数据都有序。</p>
-<p><a href="https://www.bilibili.com/video/BV1Eb41147dK/" target="_blank" rel="noopener">一个说的比较清楚的视频</a></p>
-<p>时间复杂度：</p>
-<p>图示：</p>
-<p>代码：</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/05/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%A2%B3%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -411,7 +322,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coding~~~">
+      <meta itemprop="name" content="技术随笔">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -425,10 +336,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-26 13:41:30 / 修改时间：14:00:24" itemprop="dateCreated datePublished" datetime="2020-01-26T13:41:30+08:00">2020-01-26</time>
+              <time title="创建时间：2020-01-26 13:41:30" itemprop="dateCreated datePublished" datetime="2020-01-26T13:41:30+08:00">2020-01-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-22 21:59:29" itemprop="dateModified" datetime="2020-07-22T21:59:29+08:00">2020-07-22</time>
+              </span>
 
           
 
@@ -441,21 +358,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="算法的时间和空间复杂度"><a href="#算法的时间和空间复杂度" class="headerlink" title="算法的时间和空间复杂度"></a>算法的时间和空间复杂度</h3><p>Big O notation</p>
-<p>O(1):常数复杂度</p>
-<p>O(log n):对数复杂度</p>
-<p>O(n):线性时间复杂度</p>
-<p>O(n^2):平方</p>
-<p>O(n^3):立方</p>
-<p>O(2^n):指数</p>
-<p>O(n!):阶乘</p>
-<img src="/2020/01/26/%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%92%8C%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20200126131831863.png" class="" title="算法时间复杂度示意图">
-
-<p>二分查找是O(log n)的时间复杂度</p>
-<p>遍历二叉树是O(n)的时间复杂度</p>
-<p>遍历有序矩阵等于二维的二分查找，即O(n)的时间复杂度</p>
-<p>归并排序是O(n log n)的时间复杂度</p>
-
+          <h3 id="算法的时间和空间复杂度的表示方法"><a href="#算法的时间和空间复杂度的表示方法" class="headerlink" title="算法的时间和空间复杂度的表示方法"></a>算法的时间和空间复杂度的表示方法</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/26/%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%92%8C%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -483,7 +394,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coding~~~">
+      <meta itemprop="name" content="技术随笔">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -500,6 +411,13 @@
 
               <time title="创建时间：2020-01-24 18:40:44" itemprop="dateCreated datePublished" datetime="2020-01-24T18:40:44+08:00">2020-01-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-22 22:00:15" itemprop="dateModified" datetime="2020-07-22T22:00:15+08:00">2020-07-22</time>
+              </span>
 
           
 
@@ -512,18 +430,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>算法题切题4件套</p>
-<p>1、Clarification 反复确认题目，确保理解题目</p>
-<p>2、Possible Solution 思索可能的多种解法，比较时间空间复杂度，确定最优解</p>
-<p>3、Coding 写代码</p>
-<p>4、Test cases 写测试样例</p>
-<p>5遍刷题法</p>
-<p>第一遍：1、5分钟：读题+思考；2、如果没有思路直接看解法；3、背诵学习正确解法</p>
-<p>第二遍：马上自己写-&gt;leetcode提交，多种解法比较、体会、优化</p>
-<p>第三遍：第二天，再重复做题</p>
-<p>第四遍：一周后重复做题</p>
-<p>第五遍：需要时恢复性做题</p>
-
+          <p>一种刷题方法</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/24/%E7%AE%97%E6%B3%95%E9%A2%98%E5%88%87%E9%A2%984%E4%BB%B6%E5%A5%97%E5%92%8C5%E9%81%8D%E5%88%B7%E9%A2%98%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -613,6 +528,14 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/smilelifeVama" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;smilelifeVama" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:smilelife_xilei@163.com" title="E-Mail → mailto:smilelife_xilei@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -641,8 +564,30 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Humor</span>
 </div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.0
+  </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
